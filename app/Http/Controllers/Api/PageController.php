@@ -12,7 +12,7 @@ class PageController extends Controller
     public function index(){
 
         // Prendo l'elenco dei post:
-        $posts = Post::all();
+        $posts = Post::with(['category', 'tags'])->paginate(5);
 
         // Restituisco il Json:
         return response()->json(compact('posts'));
