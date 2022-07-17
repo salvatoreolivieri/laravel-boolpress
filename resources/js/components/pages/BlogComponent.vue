@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="blog">
 
     <div>
         <h1>Blog</h1>
@@ -44,6 +44,7 @@
 
 <script>
 import PostItemComponent from '../partials/PostItemComponent.vue';
+// import { apiUrl } from "../../data/config.js";
 
 export default {
     name: "BlogComponent",
@@ -51,7 +52,7 @@ export default {
     data() {
         return {
             // Dati relativi alla chiama API:
-            apiUrl: "http://127.0.0.1:8001/api/post",
+            apiUrl: '/api/posts/',
             pagination:{
                 current: null,
                 last: null,

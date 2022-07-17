@@ -20,4 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('post', 'Api\PageController@index');
+
+Route::namespace('Api')
+        ->prefix('posts')
+        ->group(function(){
+            Route::get('/', 'PageController@index');
+            Route::get('/{slug}', 'PageController@show');
+        });

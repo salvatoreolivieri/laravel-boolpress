@@ -17,4 +17,12 @@ class PageController extends Controller
         // Restituisco il Json:
         return response()->json(compact('posts'));
     }
+
+    public function show($slug){
+
+        $post = Post::where('slug', $slug)->with(['category', 'tags'])->first();
+
+        return response()->json($post);
+
+    }
 }
